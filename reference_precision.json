@@ -1,0 +1,228 @@
+{
+  "method": "Independent high-precision Lane--Emden reference on [0, 1] for n = 0.5, 1.5, 2, 3, 4.\n\nFor z = x*x write y = sum a[k] z**k and y**n = sum b[k] z**k.  The ODE gives\n    a[k+1] = -b[k] / (2*(k+1)*(2*k+3)),\nand the identity y*(y**n)' = n*y**n*y' gives\n    b[k] = sum(((n+1)*j - k) * a[j] * b[k-j], j = 1..k) / k.\nThis origin-centred series satisfies y(0) = 1 and y'(0) = 0 exactly (no finite-x start-up error).\nIt is evaluated with two precision/order pairs, (40 digits, 80 terms in z, i.e. order 160 in x) and\n(60 digits, 120 terms, order 240), whose difference and the 60-digit ODE residual are the\nconvergence checks (empirical checks, not a rigorous error bound).  The 60-digit series is compared\nwith independent SciPy DOP853 and Radau solves started at x0 = 1e-5 and with the original DOP853\nreference of the manuscript (the _ref_sol of src/n*.py).\n\nUsage:  python reference_precision.py            ->  reference_precision.npz / reference_precision.json\nThe archive is read by src/verified_reference.py (opt-in via BFLNN_REFERENCE_ARCHIVE) and by the\nreference check of src/seeds30_mono_lr.py.",
+  "grid_points": 500,
+  "x_min": 1e-05,
+  "x_max": 1.0,
+  "convergence_thresholds": {
+    "precision_pair_difference": 1e-30,
+    "ode_residual": 1e-50
+  },
+  "environment": {
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "packages": {
+      "numpy": "2.5.1",
+      "scipy": "1.18.0",
+      "mpmath": "1.3.0"
+    }
+  },
+  "cases": [
+    {
+      "n": 0.5,
+      "precision_low_dps": 40,
+      "precision_high_dps": 60,
+      "order_low_in_x": 160,
+      "order_high_in_x": 240,
+      "max_40dps80terms_vs_60dps120terms": "9.1476126059e-43",
+      "max_highprecision_ode_residual": "1.55575381947e-61",
+      "convergence_pass": true,
+      "min_y": 0.837534529932249,
+      "DOP853": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 779,
+        "max_absolute_error": 1.7985612998927536e-14,
+        "mean_absolute_error": 1.2447820552097255e-15,
+        "derivative": {
+          "max_absolute_error": 4.3853809472693683e-14,
+          "mean_absolute_error": 3.1029616810035466e-15
+        }
+      },
+      "Radau": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 3204,
+        "max_absolute_error": 4.107825191113079e-15,
+        "mean_absolute_error": 1.8463008899516352e-15,
+        "derivative": {
+          "max_absolute_error": 9.506284648352903e-15,
+          "mean_absolute_error": 1.258695621689232e-15
+        }
+      },
+      "paper_reference": {
+        "max_absolute_error": 3.3728575488112256e-13,
+        "mean_absolute_error": 3.3059111004263284e-14
+      },
+      "float64_rounding_floor": {
+        "max_absolute_error": 5.5485943188608955e-17,
+        "mean_absolute_error": 2.8220147752164026e-17
+      }
+    },
+    {
+      "n": 1.5,
+      "precision_low_dps": 40,
+      "precision_high_dps": 60,
+      "order_low_in_x": 160,
+      "order_high_in_x": 240,
+      "max_40dps80terms_vs_60dps120terms": "9.27458537332e-43",
+      "max_highprecision_ode_residual": "1.55575381947e-61",
+      "convergence_pass": true,
+      "min_y": 0.8451697554860705,
+      "DOP853": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 839,
+        "max_absolute_error": 1.5432100042289676e-14,
+        "mean_absolute_error": 1.1970424651508438e-15,
+        "derivative": {
+          "max_absolute_error": 2.8144153674247718e-14,
+          "mean_absolute_error": 2.6662316018194466e-15
+        }
+      },
+      "Radau": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 4978,
+        "max_absolute_error": 4.107825191113079e-15,
+        "mean_absolute_error": 1.6266987756807793e-15,
+        "derivative": {
+          "max_absolute_error": 8.382183835919932e-15,
+          "mean_absolute_error": 3.84613261378286e-15
+        }
+      },
+      "paper_reference": {
+        "max_absolute_error": 4.434230760352875e-13,
+        "mean_absolute_error": 4.093170247188027e-14
+      },
+      "float64_rounding_floor": {
+        "max_absolute_error": 5.5392164378268223e-17,
+        "mean_absolute_error": 2.8310086990828565e-17
+      }
+    },
+    {
+      "n": 2,
+      "precision_low_dps": 40,
+      "precision_high_dps": 60,
+      "order_low_in_x": 160,
+      "order_high_in_x": 240,
+      "max_40dps80terms_vs_60dps120terms": "8.03142030588e-43",
+      "max_highprecision_ode_residual": "2.3336307292e-61",
+      "convergence_pass": true,
+      "min_y": 0.8486541114082496,
+      "DOP853": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 851,
+        "max_absolute_error": 2.4202861936828413e-14,
+        "mean_absolute_error": 1.7212897773788427e-15,
+        "derivative": {
+          "max_absolute_error": 4.04121180963557e-14,
+          "mean_absolute_error": 3.599120350708529e-15
+        }
+      },
+      "Radau": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 5777,
+        "max_absolute_error": 5.662137425588298e-15,
+        "mean_absolute_error": 1.9975132659055817e-15,
+        "derivative": {
+          "max_absolute_error": 1.454392162258955e-14,
+          "mean_absolute_error": 5.991977747310528e-15
+        }
+      },
+      "paper_reference": {
+        "max_absolute_error": 5.601075159233915e-13,
+        "mean_absolute_error": 4.96545027317552e-14
+      },
+      "float64_rounding_floor": {
+        "max_absolute_error": 5.547496465354077e-17,
+        "mean_absolute_error": 2.6500376584277102e-17
+      }
+    },
+    {
+      "n": 3,
+      "precision_low_dps": 40,
+      "precision_high_dps": 60,
+      "order_low_in_x": 160,
+      "order_high_in_x": 240,
+      "max_40dps80terms_vs_60dps120terms": "8.62725875506e-43",
+      "max_highprecision_ode_residual": "2.3336307292e-61",
+      "convergence_pass": true,
+      "min_y": 0.8550575685886264,
+      "DOP853": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 863,
+        "max_absolute_error": 3.319566843629218e-14,
+        "mean_absolute_error": 3.092415212790911e-15,
+        "derivative": {
+          "max_absolute_error": 5.240252676230739e-14,
+          "mean_absolute_error": 6.092993080561438e-15
+        }
+      },
+      "Radau": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 6599,
+        "max_absolute_error": 1.7985612998927536e-14,
+        "mean_absolute_error": 5.4936055704501995e-15,
+        "derivative": {
+          "max_absolute_error": 3.419486915845482e-14,
+          "mean_absolute_error": 1.787536698522052e-14
+        }
+      },
+      "paper_reference": {
+        "max_absolute_error": 1.0714762410657386e-12,
+        "mean_absolute_error": 9.022826930049632e-14
+      },
+      "float64_rounding_floor": {
+        "max_absolute_error": 5.545422413885763e-17,
+        "mean_absolute_error": 2.8004677424215564e-17
+      }
+    },
+    {
+      "n": 4,
+      "precision_low_dps": 40,
+      "precision_high_dps": 60,
+      "order_low_in_x": 160,
+      "order_high_in_x": 240,
+      "max_40dps80terms_vs_60dps120terms": "6.39480988975e-43",
+      "max_highprecision_ode_residual": "3.11150763893e-61",
+      "convergence_pass": true,
+      "min_y": 0.8608138122083118,
+      "DOP853": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 893,
+        "max_absolute_error": 1.8984813721090177e-14,
+        "mean_absolute_error": 2.3030466422824247e-15,
+        "derivative": {
+          "max_absolute_error": 3.6637359812630166e-14,
+          "mean_absolute_error": 5.276412553406606e-15
+        }
+      },
+      "Radau": {
+        "rtol": 2.3e-14,
+        "atol": 1e-15,
+        "nfev": 8180,
+        "max_absolute_error": 1.0103029524088925e-14,
+        "mean_absolute_error": 2.7318147743926604e-15,
+        "derivative": {
+          "max_absolute_error": 2.4369395390522186e-14,
+          "mean_absolute_error": 1.1021693540474996e-14
+        }
+      },
+      "paper_reference": {
+        "max_absolute_error": 6.549205622263798e-13,
+        "mean_absolute_error": 7.792433365239049e-14
+      },
+      "float64_rounding_floor": {
+        "max_absolute_error": 5.523496116446678e-17,
+        "mean_absolute_error": 2.6050431956798006e-17
+      }
+    }
+  ],
+  "elapsed_seconds": 5.1792027950286865,
+  "all_convergence_checks_pass": true
+}
