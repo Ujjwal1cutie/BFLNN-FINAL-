@@ -1,0 +1,27 @@
+Spearman rank correlation over the 30 seeds: MAE of BFLNN vs MAE of the other basis
+     n    opponent     rho       p
+     0    legendre    0.15    0.43
+     0   chebyshev   -0.18    0.33
+     0    monomial   -0.16    0.40
+   0.5    legendre   -0.10    0.59
+   0.5   chebyshev    0.16    0.40
+   0.5    monomial    0.21    0.25
+     1    legendre    0.00    0.99
+     1   chebyshev   -0.03    0.86
+     1    monomial    0.05    0.81
+   1.5    legendre    0.06    0.76
+   1.5   chebyshev    0.41    0.02
+   1.5    monomial   -0.27    0.15
+     2    legendre    0.19    0.31
+     2   chebyshev   -0.23    0.23
+     2    monomial    0.33    0.08
+     3    legendre    0.00    0.99
+     3   chebyshev   -0.26    0.17
+     3    monomial   -0.04    0.85
+     4    legendre   -0.26    0.17
+     4   chebyshev    0.27    0.14
+     4    monomial   -0.22    0.24
+     5    legendre    0.27    0.15
+     5   chebyshev    0.02    0.90
+     5    monomial   -0.13    0.50
+max |rho| = 0.41; pairs with p < 0.05: 1 of 24

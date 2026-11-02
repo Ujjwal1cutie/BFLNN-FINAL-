@@ -1,0 +1,47 @@
+A. Adam convergence milestones (median over 5 seeds); "-" = never reached
+     n Net       L<1e-04    L<1e-06    L<1e-08   stop ep.  final val. loss
+     0 BFLNN        4000       4800       5400      19200         1.03e-26
+     0 ChNN         3200          -          -      14000         1.37e-06
+     0 LNN          3200       3400       3800      15400         9.07e-16
+
+   0.5 BFLNN        4000       4800       5400      25600         3.26e-15
+   0.5 ChNN         3400          -          -      13800         1.35e-05
+   0.5 LNN          3200       3400       3800      15200         3.31e-15
+
+     1 BFLNN        4000       4800       5400      25800         4.59e-15
+     1 ChNN         3400          -          -      14800         4.98e-06
+     1 LNN          3200       3400       3800      15000         4.68e-15
+
+   1.5 BFLNN        4000       4800       5400      21200         2.04e-13
+   1.5 ChNN         3400       3800          -      14800         6.94e-08
+   1.5 LNN          3200       3400       3800      15200         2.06e-13
+
+     2 BFLNN        4000       4800       5400      17200         7.38e-13
+     2 ChNN         3400          -          -      15600         5.84e-06
+     2 LNN          3200       3400       3800      14600         7.41e-13
+
+     3 BFLNN        4000       4800       5400      26600         2.63e-12
+     3 ChNN         3400          -          -      14600         2.31e-06
+     3 LNN          3200       3400       3800      14800         2.72e-12
+
+     4 BFLNN        4000       4800       5400      28600         1.19e-10
+     4 ChNN         3400       3600          -      14200         2.77e-07
+     4 LNN          3200       3400       3800      16600         1.16e-10
+
+     5 BFLNN        4000       4800       5400      20000         9.53e-10
+     5 ChNN         3400          -          -      13800         1.38e-06
+     5 LNN          3200       3400       3800      29400         9.35e-10
+
+B. Eigenvalues of the Gauss-Newton Hessian (2/N) J^T J at the observed LM fit (n = 1)
+  BFLNN   4.17e+03  7.21e+02  1.63e+02  4.02e+01  1.72e+01  1.82e+00   lam_max/lam_min =  2.3e+03
+  ChNN    1.62e+05  3.17e+03  3.37e+02  8.19e+01  3.97e+01  1.32e+01   lam_max/lam_min =  1.2e+04
+  LNN     5.35e+04  1.14e+03  1.42e+02  4.81e+01  2.06e+01  1.37e+01   lam_max/lam_min =  3.9e+03
+  (n = 0 ... 5: lam_max differs by < 5% from the n = 1 values; see script output below)
+  n=0    BFLNN: lam_max=4.16e+03 lam_min=1.83e+00 | ChNN: lam_max=1.61e+05 lam_min=1.32e+01 | LNN: lam_max=5.30e+04 lam_min=1.37e+01
+  n=0.5  BFLNN: lam_max=4.17e+03 lam_min=1.82e+00 | ChNN: lam_max=1.62e+05 lam_min=1.32e+01 | LNN: lam_max=5.33e+04 lam_min=1.37e+01
+  n=1    BFLNN: lam_max=4.17e+03 lam_min=1.82e+00 | ChNN: lam_max=1.62e+05 lam_min=1.32e+01 | LNN: lam_max=5.35e+04 lam_min=1.37e+01
+  n=1.5  BFLNN: lam_max=4.18e+03 lam_min=1.82e+00 | ChNN: lam_max=1.63e+05 lam_min=1.32e+01 | LNN: lam_max=5.37e+04 lam_min=1.37e+01
+  n=2    BFLNN: lam_max=4.18e+03 lam_min=1.82e+00 | ChNN: lam_max=1.63e+05 lam_min=1.32e+01 | LNN: lam_max=5.39e+04 lam_min=1.37e+01
+  n=3    BFLNN: lam_max=4.20e+03 lam_min=1.81e+00 | ChNN: lam_max=1.64e+05 lam_min=1.32e+01 | LNN: lam_max=5.42e+04 lam_min=1.37e+01
+  n=4    BFLNN: lam_max=4.21e+03 lam_min=1.81e+00 | ChNN: lam_max=1.64e+05 lam_min=1.32e+01 | LNN: lam_max=5.45e+04 lam_min=1.38e+01
+  n=5    BFLNN: lam_max=4.21e+03 lam_min=1.81e+00 | ChNN: lam_max=1.65e+05 lam_min=1.32e+01 | LNN: lam_max=5.47e+04 lam_min=1.38e+01

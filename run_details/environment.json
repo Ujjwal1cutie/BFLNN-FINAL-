@@ -1,0 +1,11 @@
+{
+ "python": "3.13.14",
+ "numpy": "2.5.1",
+ "scipy": "1.18.0",
+ "matplotlib": "3.11.1",
+ "mpmath": "1.3.0",
+ "torch": "2.14.1+cpu",
+ "platform": "Windows 11",
+ "cpu": "Intel Core Ultra 5 125H",
+ "logical_cores": 18
+}

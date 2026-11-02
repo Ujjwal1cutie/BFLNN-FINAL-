@@ -1,0 +1,20 @@
+Degree chosen per seed by the lowest validation loss (m = 3..9), clip norm = inf; MAE of the chosen models
+     n               BFLNN: m chosen / MAE (m=5 MAE)                ChNN: m chosen / MAE (m=5 MAE)                 LNN: m chosen / MAE (m=5 MAE)
+     0  m=43433  2.89e-18 ( 2.13e-15)  m=33333  3.73e-18 ( 1.18e-15)  m=33333  4.66e-18 ( 1.73e-17)
+   0.5  m=66666  1.31e-11 ( 2.51e-10)  m=66666  1.22e-11 ( 2.34e-10)  m=77777  4.65e-12 ( 2.45e-10)
+     1  m=66666  5.59e-12 ( 2.90e-10)  m=66666  6.78e-12 ( 2.73e-10)  m=77777  3.94e-12 ( 2.86e-10)
+   1.5  m=66666  1.40e-10 ( 1.93e-09)  m=77777  4.06e-11 ( 1.79e-09)  m=77777  4.90e-12 ( 1.86e-09)
+     2  m=66766  6.50e-10 ( 3.45e-09)  m=77777  4.08e-11 ( 3.47e-09)  m=77777  7.82e-12 ( 3.58e-09)
+     3  m=77777  1.65e-09 ( 5.79e-09)  m=88888  2.89e-10 ( 5.68e-09)  m=99999  1.56e-10 ( 5.75e-09)
+     4  m=77777  1.98e-09 ( 4.80e-08)  m=88888  2.92e-10 ( 4.48e-08)  m=99999  1.29e-10 ( 4.70e-08)
+     5  m=77777  3.39e-09 ( 1.38e-07)  m=88888  2.30e-10 ( 1.31e-07)  m=88888  5.04e-11 ( 1.30e-07)
+
+Ratio of selected-model MAE to BFLNN selected-model MAE:
+  n=0    LNN/BFLNN =      1.6   ChNN/BFLNN =      1.3
+  n=0.5  LNN/BFLNN =      0.4   ChNN/BFLNN =      0.9
+  n=1    LNN/BFLNN =      0.7   ChNN/BFLNN =      1.2
+  n=1.5  LNN/BFLNN =      0.0   ChNN/BFLNN =      0.3
+  n=2    LNN/BFLNN =      0.0   ChNN/BFLNN =      0.1
+  n=3    LNN/BFLNN =      0.1   ChNN/BFLNN =      0.2
+  n=4    LNN/BFLNN =      0.1   ChNN/BFLNN =      0.1
+  n=5    LNN/BFLNN =      0.0   ChNN/BFLNN =      0.1

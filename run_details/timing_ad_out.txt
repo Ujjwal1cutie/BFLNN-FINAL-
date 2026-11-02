@@ -1,0 +1,26 @@
+Platform : Windows-11-10.0.26300-SP0 | Intel64 Family 6 Model 170 Stepping 4, GenuineIntel
+Software : Python 3.13.14, NumPy 2.5.1, SciPy 1.18.0, PyTorch 2.14.1+cpu (CPU, float64; PyTorch intra-op threads=1; NumPy thread limits requested via environment)
+Scope: fixed weights; loss and parameter gradient only. Excludes Adam, gradient clipping, validation, and early stopping.
+Protocol: median of 3 timing blocks after one warm-up call; at most 2000 calls per block, at least 20 calls, 0.3-second target budget.
+
+A. Raw construction of Phi, Phi', Phi'' (N = 30), microseconds; excludes normalization-grid and validation-grid preparation
+     K   Bernoulli   Chebyshev    Legendre
+     6        41.1        49.1        31.7
+    12       140.8       103.0        79.3
+    24       517.9       256.2       192.8
+
+B. Time per loss-and-gradient evaluation, microseconds
+     N   K   (i) analytic  (ii) analytic  (iii) full AD  (iii) full AD  (iii)/(ii)
+             NumPy, Bern.   torch, Bern.   torch, Bern.   torch, Cheb.       Bern.
+    30   6           66.7          360.9         2935.2         2018.4         8.1
+    30  12           66.0          376.5         8301.5         3850.2        22.1
+    30  24           83.7          370.9        30092.0         7549.7        81.1
+   120   6           98.8          400.5         3002.5         2023.9         7.5
+   120  12          109.6          373.5         8577.2         4236.7        23.0
+   120  24          121.3          364.2        31998.4         7817.9        87.9
+   480   6          225.8          385.2         3108.0         2298.6         8.1
+   480  12          242.4          438.8         9060.3         4135.1        20.6
+   480  24          303.7          407.3        34817.0         8438.9        85.5
+
+C. Bernoulli gradient agreement, maximum relative infinity-norm difference against (i), across (ii) and (iii): 9.2e-15
+   Chebyshev full-AD versus analytical NumPy gradient, maximum relative infinity-norm difference: 1.6e-15; all finite, tolerance 1e-8

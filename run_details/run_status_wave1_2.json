@@ -1,0 +1,99 @@
+{
+ "n0.py ": {
+  "exit": 0,
+  "seconds": 94.5
+ },
+ "no.5.py ": {
+  "exit": 0,
+  "seconds": 109.1
+ },
+ "n1.py ": {
+  "exit": 0,
+  "seconds": 96.0
+ },
+ "n1.5.py ": {
+  "exit": 0,
+  "seconds": 93.7
+ },
+ "n2.py ": {
+  "exit": 0,
+  "seconds": 99.2
+ },
+ "n3.py ": {
+  "exit": 0,
+  "seconds": 109.7
+ },
+ "n4.py ": {
+  "exit": 0,
+  "seconds": 100.6
+ },
+ "n5.py ": {
+  "exit": 0,
+  "seconds": 109.9
+ },
+ "conditioning.py ": {
+  "exit": 0,
+  "seconds": 132.9
+ },
+ "hessian_landscape.py ": {
+  "exit": 0,
+  "seconds": 683.2
+ },
+ "kurmanc_compare.py ": {
+  "exit": 0,
+  "seconds": 154.4
+ },
+ "degree_sweep.py ": {
+  "exit": 0,
+  "seconds": 1030.5
+ },
+ "thermal_bvp.py ": {
+  "exit": 0,
+  "seconds": 180.6
+ },
+ "xi1_domain.py ": {
+  "exit": 0,
+  "seconds": 410.6
+ },
+ "seeds30_mono_lr.py ": {
+  "exit": 0,
+  "seconds": 2149.1
+ },
+ "degree_select.py ": {
+  "exit": 0,
+  "seconds": 1125.9
+ },
+ "xi1_refine.py ": {
+  "exit": 0,
+  "seconds": 690.1
+ },
+ "clip_test.py ": {
+  "exit": 0,
+  "seconds": 605.4
+ },
+ "degree_select.py inf": {
+  "exit": 0,
+  "seconds": 1599.2
+ },
+ "norm_test.py ": {
+  "exit": 0,
+  "seconds": 578.4
+ },
+ "hyper_grid.py ": {
+  "exit": 0,
+  "seconds": 1821.5
+ },
+ "activation_test.py ": {
+  "exit": 0,
+  "seconds": 331.4
+ },
+ "plot_seeds.py ": {
+  "exit": 0,
+  "seconds": 119.8
+ },
+ "timing_ad.py ": {
+  "exit": 0,
+  "seconds": 46.6
+ },
+ "ALL_DONE": true
+}
