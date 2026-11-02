@@ -1,0 +1,190 @@
+========================================================================
+  LANE-EMDEN  n = 2   |   REFERENCE: DOP853 (rtol=1e-12) — no exact
+  DEGREE=5 (K=6)  N_TRAIN=30  N_SEEDS=5
+========================================================================
+
+  Building high-accuracy reference (DOP853, rtol=1e-12) …
+    Done.
+
+  Training FLNN networks (n=2) …
+
+  ── BernoulliNN (proposed) ──
+    [bernoulli ] Epoch 10000 | train=8.815e-13  val=7.545e-13
+    [bernoulli ] Epoch 10000 | train=1.707e-12  val=9.830e-12
+    [bernoulli ] Epoch 10000 | train=8.815e-13  val=7.546e-13
+    [bernoulli ] Epoch 10000 | train=4.904e-10  val=9.121e-10
+    [bernoulli ] Epoch 20000 | train=1.327e-07  val=2.265e-07
+    [bernoulli ] Epoch 10000 | train=3.183e-11  val=2.667e-10
+    MAE = 3.459e-09 ± 1.6e-10   Linf = 7.552e-09   t = 1.7s
+
+  ── ChebyshevNN ──
+    [chebyshev ] Epoch 10000 | train=1.911e-05  val=6.154e-06
+    [chebyshev ] Epoch 10000 | train=3.106e-06  val=7.147e-06
+    [chebyshev ] Epoch 10000 | train=3.138e-06  val=2.256e-05
+    [chebyshev ] Epoch 10000 | train=4.511e-06  val=2.616e-06
+    [chebyshev ] Epoch 10000 | train=9.538e-06  val=6.014e-06
+    MAE = 9.292e-06 ± 1.1e-05   Linf = 3.653e-05   t = 1.5s
+
+  ── LegendreNN ──
+    [legendre  ] Epoch 10000 | train=3.227e-10  val=2.763e-10
+    [legendre  ] Epoch 10000 | train=1.928e-09  val=1.894e-09
+    [legendre  ] Epoch 10000 | train=5.701e-08  val=8.552e-08
+    [legendre  ] Epoch 10000 | train=1.266e-10  val=1.230e-10
+    [legendre  ] Epoch 10000 | train=1.923e-08  val=2.051e-08
+    MAE = 6.652e-09 ± 6.2e-09   Linf = 1.442e-08   t = 1.6s
+
+  Computing classical methods …
+    Done.
+
+  Degree ablation …
+    [bernoulli ] Epoch 10000 | train=3.036e-08  val=2.552e-08
+    [chebyshev ] Epoch 10000 | train=3.036e-08  val=2.552e-08
+    [legendre  ] Epoch 10000 | train=3.036e-08  val=2.552e-08
+    K=4 done
+    [bernoulli ] Epoch 10000 | train=8.815e-13  val=7.545e-13
+    [chebyshev ] Epoch 10000 | train=1.911e-05  val=6.154e-06
+    [legendre  ] Epoch 10000 | train=3.227e-10  val=2.763e-10
+    K=6 done
+    [bernoulli ] Epoch 10000 | train=4.276e-06  val=3.603e-06
+    [bernoulli ] Epoch 20000 | train=1.253e-08  val=1.052e-08
+    [bernoulli ] Epoch 30000 | train=3.780e-11  val=3.184e-11
+    [bernoulli ] Epoch 40000 | train=2.122e-12  val=3.857e-12
+    [bernoulli ] Epoch 50000 | train=6.466e-13  val=2.086e-11
+    [chebyshev ] Epoch 10000 | train=1.361e-06  val=3.203e-05
+    [legendre  ] Epoch 10000 | train=1.183e-05  val=7.677e-07
+    K=8 done
+    [bernoulli ] Epoch 10000 | train=7.183e-06  val=6.545e-06
+    [bernoulli ] Epoch 20000 | train=2.799e-06  val=2.487e-06
+    [bernoulli ] Epoch 30000 | train=9.631e-06  val=3.675e-06
+    [bernoulli ] Epoch 40000 | train=4.764e-07  val=4.187e-07
+    [bernoulli ] Epoch 50000 | train=2.152e-07  val=1.886e-07
+    [chebyshev ] Epoch 10000 | train=2.109e-03  val=2.786e-04
+    [chebyshev ] Epoch 20000 | train=3.256e-03  val=2.788e-03
+    [chebyshev ] Epoch 30000 | train=1.637e-03  val=7.609e-05
+    [chebyshev ] Epoch 40000 | train=2.254e-03  val=2.421e-04
+    [chebyshev ] Epoch 50000 | train=3.277e-03  val=2.804e-03
+    [legendre  ] Epoch 10000 | train=1.074e-04  val=1.069e-06
+    [legendre  ] Epoch 20000 | train=1.160e-04  val=4.690e-07
+    K=10 done
+
+  Collocation sensitivity …
+    [bernoulli ] Epoch 10000 | train=4.901e-11  val=5.889e-11
+    [bernoulli ] Epoch 20000 | train=7.948e-13  val=1.108e-12
+    [bernoulli ] Epoch 30000 | train=7.895e-13  val=1.121e-12
+    [chebyshev ] Epoch 10000 | train=3.840e-06  val=6.897e-07
+    [legendre  ] Epoch 10000 | train=1.900e-07  val=9.341e-08
+    [legendre  ] Epoch 20000 | train=5.401e-06  val=2.171e-06
+    N=10 done
+    [bernoulli ] Epoch 10000 | train=6.832e-12  val=1.113e-12
+    [chebyshev ] Epoch 10000 | train=2.603e-06  val=2.469e-05
+    [legendre  ] Epoch 10000 | train=1.328e-08  val=2.954e-09
+    N=20 done
+    [bernoulli ] Epoch 10000 | train=8.815e-13  val=7.545e-13
+    [chebyshev ] Epoch 10000 | train=1.911e-05  val=6.154e-06
+    [legendre  ] Epoch 10000 | train=3.227e-10  val=2.763e-10
+    N=30 done
+    [bernoulli ] Epoch 10000 | train=3.510e-07  val=5.061e-08
+    [chebyshev ] Epoch 10000 | train=4.784e-06  val=3.119e-06
+    [legendre  ] Epoch 10000 | train=1.640e-10  val=1.897e-10
+    N=50 done
+    [bernoulli ] Epoch 10000 | train=7.465e-13  val=6.707e-13
+    [chebyshev ] Epoch 10000 | train=5.914e-06  val=4.465e-06
+    [legendre  ] Epoch 10000 | train=1.705e-10  val=1.137e-10
+    N=80 done
+
+  Node study (uniform vs optimal) …
+    [bernoulli ] Epoch 10000 | train=8.815e-13  val=7.545e-13
+    [bernoulli ] Epoch 10000 | train=8.815e-13  val=7.545e-13
+    [chebyshev ] Epoch 10000 | train=1.911e-05  val=6.154e-06
+    [chebyshev ] Epoch 10000 | train=1.719e-06  val=1.571e-06
+    [legendre  ] Epoch 10000 | train=3.227e-10  val=2.763e-10
+    [legendre  ] Epoch 10000 | train=7.375e-07  val=2.339e-07
+    [legendre  ] Epoch 20000 | train=2.616e-06  val=1.126e-06
+    Done.
+Saved original-script figure: figs/n2/Figure_01
+Saved original-script figure: figs/n2/Figure_02
+Saved original-script figure: figs/n2/Figure_03
+Saved original-script figure: figs/n2/Figure_04
+Saved original-script figure: figs/n2/Figure_05
+Saved original-script figure: figs/n2/Figure_06
+Saved original-script figure: figs/n2/Figure_07
+Saved original-script figure: figs/n2/Figure_08
+Saved original-script figure: figs/n2/Figure_09
+Saved original-script figure: figs/n2/Figure_10
+Saved original-script figure: figs/n2/Figure_11
+Saved original-script figure: figs/n2/Figure_12
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+  TABLE 1 — Point-wise: FLNN methods vs Reference Solution
+  Lane-Emden  n=2  |  Reference: DOP853 (rtol=1e-12)  |  Best seed
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+      x       Reference     BernoulliNN       |Err B|     ChebyshevNN       |Err C|      LegendreNN       |Err L|
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    0.0    1.0000000000    1.0000000000     0.000e+00    1.0000000000     0.000e+00    1.0000000000     0.000e+00
+    0.1    0.9983349985    0.9983350005     1.985e-09    0.9983364206     1.422e-06    0.9983350004     1.885e-09
+    0.2    0.9933599072    0.9933599143     7.133e-09    0.9933632410     3.334e-06    0.9933599133     6.088e-09
+    0.3    0.9851339469    0.9851339510     4.093e-09    0.9851389338     4.987e-06    0.9851339493     2.353e-09
+    0.4    0.9737541163    0.9737541128     3.481e-09    0.9737614778     7.361e-06    0.9737541117     4.608e-09
+    0.5    0.9593527158    0.9593527108     5.031e-09    0.9593638116     1.110e-05    0.9593527112     4.564e-09
+    0.6    0.9420940357    0.9420940368     1.024e-09    0.9421093616     1.533e-05    0.9420940385     2.758e-09
+    0.7    0.9221703485    0.9221703548     6.228e-09    0.9221882469     1.790e-05    0.9221703564     7.834e-09
+    0.8    0.8997973703    0.8997973743     4.004e-09    0.8998147713     1.740e-05    0.8997973746     4.346e-09
+    0.9    0.8752093703    0.8752093699     4.089e-10    0.8752268199     1.745e-05    0.8752093695     8.731e-10
+    1.0    0.8486541114    0.8486541127     1.341e-09    0.8486877816     3.367e-05    0.8486541128     1.415e-09
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  BernoulliNN  ►  MAE = 3.157e-09   L∞ = 7.133e-09
+  ChebyshevNN  ►  MAE = 1.181e-05   L∞ = 3.367e-05
+  LegendreNN   ►  MAE = 3.338e-09   L∞ = 7.834e-09
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+  TABLE 2 — Error Metrics Summary (mean ± std over 5 seeds)
+  Lane-Emden  n=2  |  Reference: DOP853 (rtol=1e-12)  |  M=500 eval pts
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+  Method                              MAE (mean±std)             RMSE (mean±std)            L∞      MeanRelE   Time(s)
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  BernoulliNN (proposed)         3.459e-09 ± 1.6e-10         4.182e-09 ± 1.8e-10     7.552e-09     3.629e-09       1.7
+  ChebyshevNN                    9.292e-06 ± 1.1e-05         1.195e-05 ± 1.1e-05     3.653e-05     1.010e-05       1.5
+  LegendreNN                     6.652e-09 ± 6.2e-09         8.084e-09 ± 7.6e-09     1.442e-08     6.978e-09       1.6
+
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+  TABLE 3 — Comparison: FLNN Methods vs Classical Numerical Methods
+  Lane-Emden  n=2  |  All errors vs reference DOP853 (rtol=1e-12)
+  Classical step:  h = 0.01   |   FLNN: best seed
+════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+  Method                       y(0.1)       y(0.2)       y(0.3)       y(0.5)       y(0.7)       y(0.9)       y(1.0)     
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Reference (rtol=1e-12)         0.99833500    0.99335991    0.98513395    0.95935272    0.92217035    0.87520937    0.84865411
+  BernoulliNN (proposed)         0.99833500    0.99335991    0.98513395    0.95935271    0.92217035    0.87520937    0.84865411
+  LegendreNN                     0.99833500    0.99335991    0.98513395    0.95935271    0.92217036    0.87520937    0.84865411
+  ChebyshevNN                    0.99833642    0.99336324    0.98513893    0.95936381    0.92218825    0.87522682    0.84868778
+  RK45 scipy (rtol=1e-6)         0.99833500    0.99335991    0.98513395    0.95935272    0.92217035    0.87520937    0.84865411
+  RK4   (h=0.01)                 0.99833500    0.99335991    0.98513395    0.95935272    0.92217035    0.87520937    0.84865411
+  Heun  (h=0.01)                 0.99833497    0.99335981    0.98513374    0.95935219    0.92216943    0.87520805    0.84865262
+  Euler (h=0.01)                 0.99850095    0.99368739    0.98561406    0.96009518    0.92309634    0.87622349    0.84967454
+
+  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Method                                 MAE            L∞          RMSE
+  ────────────────────────────────────────────────────────────
+  Reference (rtol=1e-12)                   —             —             —
+  BernoulliNN (proposed)           3.157e-09     7.133e-09     3.894e-09
+  LegendreNN                       3.338e-09     7.834e-09     4.032e-09
+  ChebyshevNN                      1.181e-05     3.367e-05     1.511e-05
+  RK45 scipy (rtol=1e-6)           5.761e-09     1.995e-08     9.020e-09
+  RK4   (h=0.01)                   3.807e-11     4.576e-11     4.019e-11
+  Heun  (h=0.01)                   6.159e-07     1.495e-06     7.997e-07
+  Euler (h=0.01)                   6.477e-04     1.020e-03     7.329e-04
+
+════════════════════════════════════════════════════════════════════════
+  RANKING  (by MAE at 11 specific x points, best seed)
+════════════════════════════════════════════════════════════════════════
+  1.  RK4   (h=0.01)                  MAE = 3.807e-11
+  2.  BernoulliNN (proposed)          MAE = 3.157e-09  ← proposed
+  3.  LegendreNN                      MAE = 3.338e-09
+  4.  RK45 scipy (rtol=1e-6)          MAE = 5.761e-09
+  5.  Heun  (h=0.01)                  MAE = 6.159e-07
+  6.  ChebyshevNN                     MAE = 1.181e-05
+  7.  Euler (h=0.01)                  MAE = 6.477e-04
+
+========================================================================
+  ALL FIGURES AND 3 TABLES COMPLETE  (n=2 only)
+========================================================================
