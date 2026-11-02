@@ -16,13 +16,17 @@ other two), no autodiff.
 pip install -r requirements.txt
 ```
 
-All numbers in the paper were regenerated with this code in one environment:
-Python 3.13.14, NumPy 2.5.1, SciPy 1.18.0, Matplotlib 3.11.1, mpmath 1.3.0,
-PyTorch 2.14.1 (CPU), Windows 11, Intel Core Ultra 5 125H. torch is only needed
-for `timing_ad.py` and mpmath only for `seeds30_mono_lr.py` and
-`reference_precision.py`. The training runs are deterministic (fixed seeds);
-other library versions can change the last digits of a result (training of the
-Chebyshev network in particular is sensitive to round-off).
+The outputs in `run_details/` were generated with this code in the following
+environment: Python 3.13.14, NumPy 2.5.1, SciPy 1.18.0, Matplotlib 3.11.1,
+mpmath 1.3.0, PyTorch 2.14.1 (CPU), Windows 11, Intel Core Ultra 5 125H
+(see `run_details/environment.json`). A repeat run with Python 3.14.3 and
+NumPy 2.4.3 gave identical `*_out.txt` files, except for the timings;
+`run_details/baseline_results.json` was written in that repeat run. torch is
+only needed for `timing_ad.py` and mpmath only for `seeds30_mono_lr.py`,
+`verified_reference.py` and `reference_precision.py`. The training runs are
+deterministic (fixed seeds); other library versions can change the last digits
+of a result (training of the Chebyshev network in particular is sensitive to
+round-off).
 
 ## Files
 
@@ -48,40 +52,45 @@ Other scripts:
 - `degree_select.py` - degree chosen by the validation loss of the returned weights (run with `inf` for no clipping)
 - `clip_test.py` - gradient clipping norm 1 / 10 / none
 - `hyper_grid.py` - learning rate x clipping grid, robustness figure
-- `seeds30_mono_lr.py` - 30 seeds, monomial basis, Mann-Whitney tests with Holm correction, derivative errors, learning rate, reference check
-- `seed_correlation.py` - Spearman correlation of the 30-seed MAE values between the bases (justifies the independent-sample tests)
+- `seeds30_mono_lr.py` - 30 seeds, monomial basis, derivative errors, learning rate, reference check; also prints Mann-Whitney tests with Holm correction, which are not reported in the paper
+- `seed_correlation.py` - Spearman correlation of the 30-seed MAE values between the bases (not reported in the paper)
 - `xi1_domain.py`, `xi1_refine.py` - solution up to the first zero xi_1 (Levenberg-Marquardt, Adam, Adam followed by LM)
 - `timing_ad.py` - time of one fixed-weight loss-and-gradient evaluation, analytic vs autodiff
 - `kurmanc_compare.py` - comparison in the setting of Kurmanc & Ozavsar (2025)
 - `thermal_bvp.py` - thermal explosion (Frank-Kamenetskii) problem
 - `plot_seeds.py` - median / range figures over the seeds
-- `export_baseline_results.py`, `plot_summary.py` - summary figures (the first writes `results/baseline_results.json`)
+- `export_baseline_results.py`, `plot_summary.py` - summary figures (the first writes `results/baseline_results.json`, which the second reads; the archived copy is `run_details/baseline_results.json`)
 - `reference_precision.py` (repository root) - independent 60-digit power-series reference for n = 0.5, 1.5, 2, 3, 4 and its convergence checks; writes `reference_precision.npz/json`
 - `verify_numerics.py` (repository root) - finite-difference check of the analytic gradients, basis derivatives and Jacobians (`verification_numerics.json`)
 
 ## Script for each table and figure of the paper
 
-| Paper | Script |
-|---|---|
-| Table 2 | `timing_ad.py` |
-| Tables 6 and 20 | `degree_select.py` (also with `inf`), `degree_sweep.py` |
-| Table 7, Table 16, Fig. 5, Suppl. Tables S1-S16, Suppl. Figs. S1-S2 | `n0.py` ... `n5.py` |
-| Tables 8 and 9, Fig. 8 | `conditioning.py`, `hessian_landscape.py` |
-| Tables 10, 11 and 18 | `seeds30_mono_lr.py`, `seed_correlation.py` |
-| Fig. 9 | `hyper_grid.py` |
-| Table 12 | `kurmanc_compare.py` |
-| Tables 13 and 14 | `xi1_domain.py`, `xi1_refine.py` |
-| Table 15 | `thermal_bvp.py` |
-| Table 17 | `norm_test.py` |
-| Table 19 | `activation_test.py` |
-| Table 21 | `clip_test.py` |
-| Figs. 2-4 | `plot_seeds.py` |
-| Figs. 6 and 7 | `export_baseline_results.py`, `plot_summary.py` |
+| Paper | Script | Output |
+|---|---|---|
+| Table 2 | `timing_ad.py` | `timing_ad_out.txt` |
+| Tables 6, 12 and 13 | `seeds30_mono_lr.py` | `seeds30_mono_lr_out.txt` |
+| Table 7 | `degree_select.py` (also with `inf`) | `degree_select_out.txt`, `degree_select_clipinf_out.txt` |
+| Table 8 | `degree_sweep.py` | `degree_sweep_out.txt`; LM column: second value of each entry in `degree_lm_verified_reference.json` |
+| Tables 9 and 10 | `conditioning.py`, `hessian_landscape.py` | `conditioning_out.txt`, `hessian_landscape_out.txt` |
+| Table 11 | `norm_test.py` | `norm_test_out.txt` |
+| Table 14 | `clip_test.py` | `clip_test_out.txt` |
+| Table 15 | `activation_test.py` | `activation_test_out.txt` |
+| Tables 16 and 17 | `xi1_domain.py`, `xi1_refine.py` | `xi1_domain_out.txt`, `xi1_refine_out.txt` |
+| Table 18 | `thermal_bvp.py` | `thermal_bvp_out.txt` |
+| Table 19 | `kurmanc_compare.py` | `kurmanc_compare_out.txt` |
+| Tables 20 and 21 | `n0.py` ... `n5.py`, `export_baseline_results.py` | `baseline_results.json`, `logs/n*.txt` |
+| Suppl. Tables S1-S16, Suppl. Figs. S1-S2 | `n0.py` ... `n5.py` | `logs/n*.txt`, `figures/` |
+| Figs. 2-4 | `plot_seeds.py` | `figures/` |
+| Fig. 5 | `n0.py` ... `n5.py` | `figures/` |
+| Fig. 6 | `hessian_landscape.py` | `figures/` |
+| Fig. 7 | `hyper_grid.py` | `figures/` |
+| Figs. 8 and 9 | `export_baseline_results.py`, `plot_summary.py` | `figures/` |
 
 The scripts write their output to `*_out.txt` in `src/`. The outputs used in
-the paper are in `results/` (with the stdout logs of the `n*.py` scripts in
-`results/logs/` and the raw per-run records in `results/raw/` and
-`results/run_details/`), the figures in `figures/`.
+the paper are in `run_details/`, together with the per-run records of the
+activation and thermal tests, and the stdout logs of the `n*.py` scripts are
+in `logs/`. The figures of the paper are in `figures/`; a fresh run writes the
+figures of the `n*.py` scripts to `figs/`.
 Most scripts take 1-10 min (they use multiprocessing, `BFLNN_WORKERS` sets the
 number of workers); `seeds30_mono_lr.py` and `hyper_grid.py` take about 20-40 min.
 
