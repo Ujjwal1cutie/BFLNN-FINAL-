@@ -1,10 +1,8 @@
 # bflnn-lane-emden
 
-Code for the paper "A Bernoulli Functional Link Neural Network for Solving the
-Lane-Emden Equation: A Comparative Study with Chebyshev and Legendre Neural
-Networks" (U. K. Mishra, P. Shukla, ABV-IIITM Gwalior).
+Code for the paper "BFLNN".
 
-Single layer FLNN with Bernoulli polynomials as the functional expansion
+Single-layer FLNN with Bernoulli polynomials as the functional expansion
 (BFLNN), compared with Chebyshev (ChNN) and Legendre (LNN) networks.
 Trial solution y = 1 + x^2 tanh(W.Phi(x)). Derivatives are computed
 analytically (B_k' = k B_(k-1) for the Bernoulli basis, recurrences for the
