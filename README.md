@@ -1,4 +1,4 @@
-# bflnn-lane-emden
+# BFLNN-FINAL-
 
 Code for the paper "BFLNN".
 
